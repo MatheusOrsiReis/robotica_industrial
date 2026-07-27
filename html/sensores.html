@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Sensores - Arduino</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .grid-sensores {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .card-simples {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card-header img {
+            width: 140px; /* Aumentado de 70px para 140px */
+            height: 140px;
+            object-fit: contain;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            padding: 5px;
+            border: 1px solid #eee;
+        }
+        pre {
+            background: #222;
+            color: #0f0;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Catálogo de Sensores IoT & Industriais</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Voltar ao Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid-sensores">
+
+        <!-- 1. DHT11 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/dhth.jpg" alt="DHT11">
+                <div>
+                    <h3>1. DHT11 (Temperatura e Umidade)</h3>
+                    <p><strong>Aplicação:</strong> Climatização e salas de servidores.</p>
+                </div>
+            </div>
+            <pre><code>// Leitura Digital no Pino 2
+int leitura = digitalRead(2);
+Serial.println(leitura);</code></pre>
+        </div>
+
+        <!-- 2. HC-SR04 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/HC-SR04.webp" alt="HC-SR04">
+                <div>
+                    <h3>2. HC-SR04 (Ultrassônico / Distância)</h3>
+                    <p><strong>Aplicação:</strong> Medição de nível e robôs móveis.</p>
+                </div>
+            </div>
+            <pre><code>// Disparo de pulso ultrassônico
+digitalWrite(9, HIGH); delayMicroseconds(10); digitalWrite(9, LOW);
+long tempo = pulseIn(10, HIGH);</code></pre>
+        </div>
+
+        <!-- 3. LDR -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/LDR.webp" alt="LDR">
+                <div>
+                    <h3>3. LDR (Luminosidade)</h3>
+                    <p><strong>Aplicação:</strong> Iluminação automática e fotocélulas.</p>
+                </div>
+            </div>
+            <pre><code>// Leitura Analógica
+int luz = analogRead(A0);
+Serial.println(luz);</code></pre>
+        </div>
+
+        <!-- 4. PIR HC-SR501 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/PIR HC-SR501.webp" alt="PIR">
+                <div>
+                    <h3>4. PIR HC-SR501 (Presença)</h3>
+                    <p><strong>Aplicação:</strong> Alarmes e detecção de movimento.</p>
+                </div>
+            </div>
+            <pre><code>// Detecção de presença (HIGH/LOW)
+if (digitalRead(7) == HIGH) {
+  Serial.println("Movimento detectado!");
+}</code></pre>
+        </div>
+
+        <!-- 5. MQ-2 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/MQ-2.webp" alt="MQ-2">
+                <div>
+                    <h3>5. MQ-2 (Gás e Fumaça)</h3>
+                    <p><strong>Aplicação:</strong> Prevenção de vazamentos em galpões.</p>
+                </div>
+            </div>
+            <pre><code>// Leitura do nível de gás
+int gas = analogRead(A1);
+if (gas > 400) Serial.println("Alerta de Gás!");</code></pre>
+        </div>
+
+        <!-- 6. Indutivo LJ12A3 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/LJ12A3.webp" alt="Indutivo">
+                <div>
+                    <h3>6. LJ12A3 (Indutivo / Metal)</h3>
+                    <p><strong>Aplicação:</strong> Contagem de peças metálicas em esteiras.</p>
+                </div>
+            </div>
+            <pre><code>// Contagem de metal
+if (digitalRead(3) == LOW) {
+  Serial.println("Peça metálica passou!");
+}</code></pre>
+        </div>
+
+        <!-- 7. ACS712 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/ACS712.webp" alt="ACS712">
+                <div>
+                    <h3>7. ACS712 (Corrente Elétrica)</h3>
+                    <p><strong>Aplicação:</strong> Monitoramento e proteção de motores.</p>
+                </div>
+            </div>
+            <pre><code>// Leitura de corrente do motor
+int corrente = analogRead(A2);
+Serial.println(corrente);</code></pre>
+        </div>
+
+        <!-- 8. MFRC522 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/MFRC522.webp" alt="RFID">
+                <div>
+                    <h3>8. MFRC522 (Leitor RFID)</h3>
+                    <p><strong>Aplicação:</strong> Controle de acesso e crachás.</p>
+                </div>
+            </div>
+            <pre><code>// Leitura de Tag RFID (com biblioteca)
+if (mfrc522.PICC_IsNewCardPresent()) {
+  Serial.println("Cartão Lido!");
+}</code></pre>
+        </div>
+
+        <!-- 9. SW-420 -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/SW-420.jpg" alt="SW-420">
+                <div>
+                    <h3>9. SW-420 (Vibração)</h3>
+                    <p><strong>Aplicação:</strong> Manutenção preditiva de máquinas.</p>
+                </div>
+            </div>
+            <pre><code>// Alerta de vibração excessiva
+if (digitalRead(4) == HIGH) {
+  Serial.println("Vibração Anormal!");
+}</code></pre>
+        </div>
+
+        <!-- 10. Chama IR -->
+        <div class="card-simples">
+            <div class="card-header">
+                <img src="../imagens/Sensor de Chama IR.jpg" alt="Sensor Chama">
+                <div>
+                    <h3>10. Sensor de Chama IR</h3>
+                    <p><strong>Aplicação:</strong> Proteção contra incêndio e fogo.</p>
+                </div>
+            </div>
+            <pre><code>// Detecção de fogo
+if (digitalRead(8) == LOW) {
+  Serial.println("Fogo detectado!");
+}</code></pre>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Matheus Orsi Reis</p>
+    </footer>
+
+</body>
+</html>

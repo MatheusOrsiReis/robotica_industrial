@@ -3,69 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Robótica Industrial</title>
+    <title>Portal de Automação & Robótica Industrial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Portal de Robótica Industrial</h1>
+        <h1>Portal de Robótica e Automação Industrial</h1>
 
         <nav>
             <ul>
                 <li><a href="./index.html">Início</a></li>
-                <li><a href="./html/cartesiano.html">Cartesiano</a></li>
-                <li><a href="./html/scara.html">SCARA</a></li>
-                <li><a href="./html/articulado.html">Articulado</a></li>
-                <li><a href="./html/cilindrico.html">Cilíndrico</a></li>
-                <li><a href="./html/delta.html">Delta</a></li>
-                <li><a href="./html/polar.html">Polar</a></li>
-                <li><a href="./html/colaborativo.html">Colaborativo</a></li>
+                <li><a href="#sensoriamento">Sensoriamento</a></li>
+                <li><a href="#arduino">Arduino</a></li>
+                <li><a href="./html/sensores.html">Catálogo de Sensores</a></li>
+                <li><a href="#robos">Robôs Industriais</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
 
-        <section>
-            <h2>Internet das Coisas (IoT)</h2>
+        <!-- SEÇÃO 1: Conceito de Sensoriamento -->
+        <section id="sensoriamento">
+            <h2>O Conceito de Sensoriamento</h2>
             <p>
-                A Internet das Coisas (IoT) é uma tecnologia que conecta dispositivos físicos à internet,
-                permitindo a troca de informações em tempo real. Na indústria, sensores, máquinas e robôs
-                podem compartilhar dados para tornar os processos mais inteligentes, rápidos e eficientes.
+                Sensoriamento é a capacidade de detectar grandezas físicas ou químicas do ambiente — como temperatura, 
+                pressão, presença, luminosidade e umidade — e convertê-las em sinais elétricos legíveis. 
+                Os sensores atuam como os "sentidos" dos sistemas automatizados, fornecendo os dados brutos necessários 
+                para o monitoramento e controle.
             </p>
         </section>
 
+        <!-- SEÇÃO 2: Importância dos Sensores na Automação Industrial -->
         <section>
-            <h2>Robótica Industrial</h2>
+            <h2>Importância dos Sensores na Automação Industrial</h2>
             <p>
-                A robótica industrial utiliza robôs programáveis para executar tarefas repetitivas ou de
-                alta precisão em ambientes industriais. Esses robôs aumentam a produtividade, reduzem erros
-                e oferecem maior segurança aos trabalhadores.
+                Na Indústria 4.0, os sensores são indispensáveis para garantir a precisão, a segurança e a eficiência 
+                dos processos produtivos. Eles permitem que linhas de montagem detectem falhas em tempo real, evitem 
+                colisões em braços robóticos, monitorem o desgaste de peças e garantam a qualidade padronizada dos produtos 
+                sem a necessidade de intervenção humana constante.
             </p>
         </section>
 
+        <!-- SEÇÃO 3: Relação entre Sensores, Comunicação e Controle -->
         <section>
-            <h2>Importância da Automação Industrial</h2>
-
+            <h2>Sensores, Comunicação de Dados e Controle de Processos</h2>
             <p>
-                A automação industrial permite que processos produtivos sejam executados de forma automática,
-                reduzindo custos, aumentando a qualidade dos produtos e melhorando a eficiência das empresas.
-                Atualmente ela é considerada um dos pilares da Indústria 4.0.
+                A automação inteligente funciona em um ciclo integrado de três etapas fundamentais:
+            </p>
+            <ul>
+                <li><strong>1. Aquisição (Sensores):</strong> Capturam informações do ambiente produtivo em tempo real.</li>
+                <li><strong>2. Comunicação de Dados:</strong> Redes industriais e protocolos IoT (como Modbus, MQTT, I2C e Wi-Fi) transmitem os dados coletados até os controladores.</li>
+                <li><strong>3. Controle de Processos:</strong> Controladores (como CLPs, Arduino ou ESP32) processam as informações e enviam comandos aos atuadores (motores, válvulas e robôs) para tomar decisões automáticas.</li>
+            </ul>
+        </section>
+
+        <!-- SEÇÃO 4: Internet das Coisas (IoT) -->
+        <section>
+            <h2>Internet das Coisas (IoT) na Indústria</h2>
+            <p>
+                A Internet das Coisas (IoT) conecta esses dispositivos à internet, permitindo a troca de informações em tempo real. 
+                A integração entre robótica, sensores e IoT possibilita monitoramento remoto, manutenção preditiva e análise 
+                de dados na nuvem.
             </p>
         </section>
 
-        <section>
-            <h2>Robótica e Internet das Coisas</h2>
-
+        <!-- SEÇÃO 5: Introdução ao Arduino -->
+        <section id="arduino">
+            <h2>Arduino – Conceito, Funcionamento e Programação</h2>
             <p>
-                A integração entre robótica e Internet das Coisas possibilita que os robôs recebam e enviem
-                informações constantemente, permitindo monitoramento remoto, manutenção preditiva e tomada
-                de decisões baseada em dados em tempo real.
+                O <strong>Arduino</strong> é uma plataforma de prototipagem eletrônica open-source baseada em hardware e software livres. 
+                Seu microcontrolador lê entradas através de pinos digitais e analógicos (conectados a sensores) e executa saídas 
+                (acionando motores, relés ou displays) com base em um código programado em C/C++.
+            </p>
+            <p>
+                Sua programação é estruturada em duas funções principais: <code>setup()</code>, onde são configurados os pinos e conexões, 
+                e <code>loop()</code>, onde o código é executado continuamente para ler dados e controlar os atuadores.
             </p>
         </section>
 
-        <section>
+        <!-- SEÇÃO 6: Modelos de Robôs Industriais (Mantido do seu projeto original) -->
+        <section id="robos">
 
             <h2>Modelos de Robôs Industriais</h2>
 
@@ -127,7 +146,7 @@
     </main>
 
     <footer>
-        <p>Trabalho de Robótica Industrial - Indústria 4.0</p>
+        <p>Trabalho de Robótica e Automação Industrial - Indústria 4.0</p>
         <p>Desenvolvido por Matheus Orsi Reis</p>
     </footer>
 
