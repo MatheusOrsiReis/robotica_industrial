@@ -2,10 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-    /* Paleta Soft / Glassmorphism */
     --senai-blue: #0d3880;
     --senai-blue-light: #2563eb;
-    --senai-red-accent: #ff334b; /* Usado apenas em detalhes de brilho/glow sutil */
+    --senai-red-accent: #ff334b;
     
     --bg-main: #f8fafc;
     --bg-card: rgba(255, 255, 255, 0.85);
@@ -34,38 +33,55 @@ body {
     line-height: 1.6;
 }
 
-/* Header com Fade Elegante em Gradiante */
+/* Header com Fade Elegante e Estrutura Grid */
 header {
     background: linear-gradient(135deg, #0a2540 0%, #103b75 50%, #1e529e 100%);
     color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
+    padding: 30px 40px;
     border-bottom-left-radius: 24px;
     border-bottom-right-radius: 24px;
     box-shadow: 0 10px 25px -5px rgba(10, 37, 64, 0.25);
 }
 
-.header-container {
-    display: flex;
+/* Grid tridimensional: Logo (esq) | Título (centro) | Espaçador (dir) */
+.header-top {
+    display: grid;
+    grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
     align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+    margin-bottom: 25px;
+    gap: 20px;
 }
 
+/* Container de Fundo Branco para a Logo SENAI */
 .logo-senai {
-    max-height: 40px;
+    height: 48px;
     width: auto;
     object-fit: contain;
-    /* Adiciona um leve brilho limpo na logo */
-    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
+    display: block;
+    background-color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    transition: var(--transition);
+}
+
+.logo-senai:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Espaçador invisível com a mesma largura para manter o título 100% centralizado */
+.header-spacer {
+    width: 100%;
+    min-width: 100px;
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    text-align: center;
+    margin: 0;
 }
 
 /* Navegação Fluida com Pílulas */
@@ -83,7 +99,7 @@ nav ul li a {
     font-weight: 500;
     font-size: 0.9rem;
     padding: 8px 18px;
-    border-radius: 99px; /* Formato pílula */
+    border-radius: 99px;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(8px);
     transition: var(--transition);
@@ -116,7 +132,6 @@ section h2 {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    /* Gradiente no próprio texto do título */
     background: linear-gradient(90deg, #0d3880, #2563eb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -180,7 +195,7 @@ section img {
     font-size: 0.92rem;
 }
 
-/* Botão em Gradiente Suave com Efeito Fade no Hover */
+/* Botão com Fade no Hover */
 .card a {
     display: inline-block;
     background: linear-gradient(135deg, #0d3880 0%, #2563eb 100%);
@@ -230,7 +245,7 @@ video {
     box-shadow: var(--shadow-soft);
 }
 
-/* Rodapé em Gradiente Dark Suave */
+/* Rodapé */
 footer {
     background: linear-gradient(180deg, #0a2540 0%, #061729 100%);
     color: #94a3b8;
@@ -242,15 +257,31 @@ footer {
     border-top-right-radius: 24px;
 }
 
-/* Responsividade */
+/* Responsividade para Dispositivos Móveis */
 @media (max-width: 768px) {
-    .header-container {
+    header {
+        padding: 20px 15px;
+    }
+
+    .header-top {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .header-spacer {
+        display: none;
     }
 
     nav ul {
         flex-direction: column;
         gap: 8px;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
     }
 
     .card {
