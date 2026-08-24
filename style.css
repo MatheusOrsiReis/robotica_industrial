@@ -1,181 +1,260 @@
-/* Reset */
+/* Fonte Moderna */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-*{
+:root {
+    /* Paleta Soft / Glassmorphism */
+    --senai-blue: #0d3880;
+    --senai-blue-light: #2563eb;
+    --senai-red-accent: #ff334b; /* Usado apenas em detalhes de brilho/glow sutil */
+    
+    --bg-main: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --border-subtle: rgba(226, 232, 240, 0.8);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    
+    --radius: 16px;
+    --shadow-soft: 0 10px 30px -10px rgba(13, 56, 128, 0.08);
+    --shadow-hover: 0 20px 40px -15px rgba(13, 56, 128, 0.18);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset Base */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
     line-height: 1.6;
 }
 
-/* Cabeçalho */
-
-header{
-    background-color: #003366;
-    color: white;
-    padding: 20px;
+/* Header com Fade Elegante em Gradiante */
+header {
+    background: linear-gradient(135deg, #0a2540 0%, #103b75 50%, #1e529e 100%);
+    color: #ffffff;
+    padding: 40px 20px;
     text-align: center;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    box-shadow: 0 10px 25px -5px rgba(10, 37, 64, 0.25);
 }
 
-header h1{
-    margin-bottom: 15px;
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-nav ul{
+.logo-senai {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+    /* Adiciona um leve brilho limpo na logo */
+    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.2));
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Navegação Fluida com Pílulas */
+nav ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-nav ul li{
-    display: inline-block;
-    margin: 0 10px;
-}
-
-nav ul li a{
-    color: white;
+nav ul li a {
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 18px;
+    border-radius: 99px; /* Formato pílula */
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
 }
 
-nav ul li a:hover{
-    text-decoration: underline;
+nav ul li a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
 }
 
-/* Conteúdo */
-
-main{
+/* Conteúdo Principal */
+main {
     width: 90%;
     max-width: 1100px;
-    margin: 30px auto;
+    margin: 40px auto;
 }
 
-section{
-    background: white;
+section {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
     margin-bottom: 30px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    padding: 32px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
 }
 
-section h2{
-    color: #003366;
-    margin-bottom: 15px;
+section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    /* Gradiente no próprio texto do título */
+    background: linear-gradient(90deg, #0d3880, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
 }
 
-section img{
+section img {
     width: 100%;
     max-width: 500px;
     display: block;
-    margin: 15px auto;
-    border-radius: 5px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
 }
 
-/* Cards */
-
-.cards{
+/* Cards com Efeito Flutuante */
+.cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
     justify-content: center;
 }
 
-.card{
-    width: 300px;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.card {
+    width: 310px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius);
     text-align: center;
-    padding: 15px;
+    padding: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card img{
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
-.card h3{
-    margin: 15px 0 10px;
-    color: #003366;
+.card h3 {
+    margin: 18px 0 8px;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-.card p{
-    margin-bottom: 15px;
+.card p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
 }
 
-.card a{
+/* Botão em Gradiente Suave com Efeito Fade no Hover */
+.card a {
     display: inline-block;
-    background: #003366;
-    color: white;
+    background: linear-gradient(135deg, #0d3880 0%, #2563eb 100%);
+    color: #ffffff;
     text-decoration: none;
-    padding: 10px 18px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: var(--transition);
 }
 
-.card a:hover{
-    background: #0055aa;
+.card a:hover {
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    transform: scale(1.02);
+    opacity: 0.95;
 }
 
-/* Rodapé */
-
-footer{
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-/* Responsividade */
-
-@media (max-width: 768px){
-
-    nav ul li{
-        display: block;
-        margin: 10px 0;
-    }
-
-    .cards{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card{
-        width: 100%;
-        max-width: 350px;
-    }
-
-}
-
-/* Estilização para as Práticas Tinkercad */
+/* Bloco Tinkercad / Código */
 .desafio-container {
-    background-color: #f9f9f9;
-    border-left: 4px solid #007bff;
-    padding: 15px;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    border-radius: 4px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 24px;
+    margin: 20px 0;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-subtle);
 }
 
 pre {
-    background-color: #272822;
-    color: #f8f8f2;
-    padding: 15px;
-    border-radius: 5px;
+    background: #0f172a;
+    color: #38bdf8;
+    padding: 20px;
+    border-radius: 12px;
     overflow-x: auto;
+    font-size: 0.9rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
 }
 
 code {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', monospace;
 }
 
 video {
-    margin-top: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Rodapé em Gradiente Dark Suave */
+footer {
+    background: linear-gradient(180deg, #0a2540 0%, #061729 100%);
+    color: #94a3b8;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 360px;
+    }
 }
