@@ -151,3 +151,31 @@ footer{
     }
 
 }
+
+/* Estilização para as Práticas Tinkercad */
+.desafio-container {
+    background-color: #f9f9f9;
+    border-left: 4px solid #007bff;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #272822;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+video {
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}

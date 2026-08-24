@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práticas Tinkercad - Portal de Automação</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Práticas de Sensoriamento no Tinkercad</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.html#sensoriamento">Sensoriamento</a></li>
+                <li><a href="../index.html#arduino">Arduino</a></li>
+                <li><a href="sensores.html">Catálogo de Sensores</a></li>
+                <li><a href="../index.html#robos">Robôs Industriais</a></li>
+                <li><a href="tinkercad.html">Práticas Tinkercad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- DESAFIO 1 -->
+        <section id="desafio1">
+            <h2>Desafio 1: Iluminação Inteligente</h2>
+            <p>
+                Sistema automatizado que aciona um LED apenas quando há presença de pessoas <strong>E</strong> o ambiente encontra-se escuro, utilizando um sensor PIR e um LDR.
+            </p>
+
+            <div class="desafio-container">
+                <h3>1. Circuito no Tinkercad</h3>
+                <!-- Cole a imagem da montagem ou o iframe embed do Tinkercad -->
+                <img src="../imagens/tinkercad_desafio1.png" alt="Circuito Tinkercad - Iluminação Inteligente" style="max-width:100%; height:auto;">
+
+                <h3>2. Código do Arduino</h3>
+                <pre><code>
+const int pinPIR = 2;
+const int pinLDR = A0;
+const int pinLED = 13;
+
+int limiarLuminosidade = 400; // Ajuste conforme a simulação do Tinkercad
+
+void setup() {
+  pinMode(pinPIR, INPUT);
+  pinMode(pinLED, OUTPUT);
+  pinMode(pinLDR, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int presenca = digitalRead(pinPIR);
+  int leituraLuminosidade = analogRead(pinLDR);
+
+  // Lógica: Pessoa presente (HIGH) E Ambiente Escuro (leitura < limiar)
+  if (presenca == HIGH && leituraLuminosidade < limiarLuminosidade) {
+    digitalWrite(pinLED, HIGH);
+  } else {
+    digitalWrite(pinLED, LOW);
+  }
+  delay(100);
+}
+                </code></pre>
+
+                <h3>3. Demonstração em Vídeo</h3>
+                <video controls width="100%">
+                    <source src="../videos/1.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+            </div>
+        </section>
+
+        <!-- DESAFIO 2 -->
+        <section id="desafio2">
+            <h2>Desafio 2: Estacionamento Inteligente</h2>
+            <p>
+                Alerta visual de estacionamento utilizando sensor ultrassônico e potenciômetro. O potenciômetro define dinamicamente a distância de segurança, alterando a frequência de intermitência do LED.
+            </p>
+
+            <div class="desafio-container">
+                <h3>1. Circuito no Tinkercad</h3>
+                <img src="../imagens/tinkercad_desafio2.png" alt="Circuito Tinkercad - Estacionamento Inteligente" style="max-width:100%; height:auto;">
+
+                <h3>2. Código do Arduino</h3>
+                <pre><code>
+const int pinTrig = 9;
+const int pinEcho = 8;
+const int pinLED = 11;
+const int pinPot = A0;
+
+long duracao;
+float distancia;
+int limiteSeguranca;
+
+void setup() {
+  pinMode(pinTrig, OUTPUT);
+  pinMode(pinEcho, INPUT);
+  pinMode(pinLED, OUTPUT);
+  pinMode(pinPot, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Ler potenciômetro e mapear para uma distância limite (ex: 10cm a 50cm)
+  limiteSeguranca = map(analogRead(pinPot), 0, 1023, 10, 50);
+
+  // Mapear pulso do sensor ultrassônico
+  digitalWrite(pinTrig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(pinTrig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(pinTrig, LOW);
+
+  duracao = pulseIn(pinEcho, HIGH);
+  distancia = duracao * 0.034 / 2;
+
+  // Lógica de alerta proporcional à distância
+  if (distancia < (limiteSeguranca / 2)) {
+    // Muito próximo: LED aceso direto
+    digitalWrite(pinLED, HIGH);
+  } 
+  else if (distancia <= limiteSeguranca) {
+    // Se aproximando: LED pisca rápido conforme se aproxima
+    int tempoPisca = map(distancia, limiteSeguranca / 2, limiteSeguranca, 50, 400);
+    digitalWrite(pinLED, HIGH);
+    delay(tempoPisca);
+    digitalWrite(pinLED, LOW);
+    delay(tempoPisca);
+  } 
+  else {
+    // Fora do limite: LED desligado
+    digitalWrite(pinLED, LOW);
+  }
+}
+                </code></pre>
+
+                <h3>3. Testes e Explicação (Vídeo)</h3>
+                <video controls width="100%">
+                    <source src="../videos/2.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+            </div>
+        </section>
+
+        <!-- DESAFIO 3 -->
+        <section id="desafio3">
+            <h2>Desafio 3: Ambiente Inteligente (Estufa)</h2>
+            <p>
+                Monitoramento climático de estufa utilizando sensor de temperatura (TMP36) e sensor de umidade. Indicações visuais simultâneas via LEDs de estado.
+            </p>
+
+            <div class="desafio-container">
+                <h3>1. Circuito no Tinkercad</h3>
+                <img src="../imagens/tinkercad_desafio3.png" alt="Circuito Tinkercad - Ambiente Inteligente" style="max-width:100%; height:auto;">
+
+                <h3>2. Código do Arduino</h3>
+                <pre><code>
+const int pinTemp = A0;
+const int pinUmidade = A1;
+
+const int ledVerde = 2;   // Condição Ideal
+const int ledVermelho = 3; // Temperatura Elevada
+const int ledAmarelo = 4;  // Umidade Inadequada
+
+const float limiteTempGrave = 30.0; // °C
+const int limiteUmidadeMinima = 40;  // %
+
+void setup() {
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Leitura do Sensor de Temperatura TMP36
+  int leituraTemp = analogRead(pinTemp);
+  float voltagem = leituraTemp * (5.0 / 1023.0);
+  float temperatura = (voltagem - 0.5) * 100;
+
+  // Leitura analógica do Sensor de Umidade
+  int leituraUmidade = analogRead(pinUmidade);
+  int umidadePercent = map(leituraUmidade, 0, 1023, 0, 100);
+
+  bool tempAlta = (temperatura > limiteTempGrave);
+  bool umidadeBaixa = (umidadePercent < limiteUmidadeMinima);
+
+  // Apagar leds para atualização
+  digitalWrite(ledVerde, LOW);
+  digitalWrite(ledVermelho, LOW);
+  digitalWrite(ledAmarelo, LOW);
+
+  if (!tempAlta && !umidadeBaixa) {
+    // Condição Adequada
+    digitalWrite(ledVerde, HIGH);
+  } else {
+    // Condições Atípicas (suporta acionamento simultâneo)
+    if (tempAlta) digitalWrite(ledVermelho, HIGH);
+    if (umidadeBaixa) digitalWrite(ledAmarelo, HIGH);
+  }
+
+  delay(200);
+}
+                </code></pre>
+
+                <h3>3. Simulador e Testes de Variáveis (Vídeo)</h3>
+                <video controls width="100%">
+                    <source src="../videos/3.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Trabalho de Robótica e Automação Industrial - Indústria 4.0</p>
+        <p>Desenvolvido por Matheus Orsi Reis</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
