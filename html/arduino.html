@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduíno - Portal de Automação</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Arduíno</h1>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.html#sensoriamento">Sensoriamento</a></li>
+                <li><a href="arduino.html" aria-current="page">Arduíno</a></li>
+                <li><a href="sensores.html">Catálogo de Sensores</a></li>
+                <li><a href="../index.html#robos">Robôs Industriais</a></li>
+                <li><a href="tinkercad.html">Práticas Tinkercad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Aulas de Arduíno</h2>
+            <p>  O <strong>Arduino</strong> é uma plataforma de prototipagem eletrônica open-source baseada em hardware e
+                software livres.
+                Seu microcontrolador lê entradas através de pinos digitais e analógicos (conectados a sensores) e
+                executa saídas
+                (acionando motores, relés ou displays) com base em um código programado em C/C++.</p>
+        </section>
+
+        <section aria-labelledby="aulas-arduino">
+            <h2 id="aulas-arduino">Práticas realizadas em sala</h2>
+            <p>Realizamos estas atividades em grupo para conhecer a leitura de sensores com Arduíno.</p>
+
+            <article class="desafio-container aula-arduino">
+                <h3>1. Sensor ultrassônico</h3>
+                <p>Em sala, nosso grupo trabalhou com um sensor ultrassônico para medir distâncias. O vídeo registra a prática e mostra como a leitura do sensor pode ser usada em um projeto de automação.</p>
+                <h4>Exemplo de código</h4>
+                <pre><code>const int trig = 9;
+const int echo = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+}
+
+void loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  unsigned long tempo = pulseIn(echo, HIGH, 30000);
+  if (tempo > 0) Serial.println(tempo * 0.0343 / 2); // Distância em cm
+  delay(500);
+}</code></pre>
+                <video controls preload="metadata" aria-label="Vídeo da prática com sensor ultrassônico">
+                    <source src="../videos/arduino-ultrassonico.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+            </article>
+
+            <article class="desafio-container aula-arduino">
+                <h3>2. Sensor de presença</h3>
+                <p>Também realizamos em grupo uma atividade com sensor de presença para observar a detecção de movimento. O vídeo apresenta a experiência feita em sala; o código abaixo mostra um exemplo simples de acionamento de LED com a leitura do sensor.</p>
+                <h4>Exemplo de código</h4>
+                <pre><code>const int pir = 2;
+const int led = 13;
+
+void setup() {
+  pinMode(pir, INPUT);
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  int movimento = digitalRead(pir);
+  digitalWrite(led, movimento);
+  delay(100);
+}</code></pre>
+                <video controls preload="metadata" aria-label="Vídeo da prática com sensor de presença">
+                    <source src="../videos/arduino-presenca.mp4" type="video/mp4">
+                    Seu navegador não suporta a exibição de vídeos.
+                </video>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Trabalho de Robótica e Automação Industrial - Indústria 4.0</p>
+        <p>Desenvolvido por Matheus Orsi Reis</p>
+    </footer>
+
+</body>
+</html>

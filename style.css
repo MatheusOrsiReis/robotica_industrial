@@ -245,6 +245,30 @@ video {
     box-shadow: var(--shadow-soft);
 }
 
+/* Espaço para vídeos das futuras aulas de Arduíno */
+.aula-arduino h3 {
+    margin-bottom: 8px;
+}
+
+.aula-arduino video {
+    display: block;
+    max-width: 480px;
+    margin: 15px auto 0;
+}
+
+.video-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    margin-top: 15px;
+    border: 2px dashed var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-main);
+    text-align: center;
+}
+
 /* Rodapé */
 footer {
     background: linear-gradient(180deg, #0a2540 0%, #061729 100%);
@@ -288,4 +312,5 @@ footer {
         width: 100%;
         max-width: 360px;
     }
+
 }
