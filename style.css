@@ -261,7 +261,7 @@ section[aria-labelledby="aulas-arduino"] > p {
 
 .aula-arduino {
     display: grid;
-    grid-template-rows: auto 1fr auto 240px auto auto;
+    grid-template-rows: auto auto auto 1fr auto auto;
     gap: 8px;
     min-width: 0;
     margin: 0;
@@ -269,7 +269,8 @@ section[aria-labelledby="aulas-arduino"] > p {
 
 .aula-arduino pre {
     min-width: 0;
-    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 .aula-arduino h3 {
@@ -346,4 +347,9 @@ footer {
         max-width: 360px;
     }
 
+}
+
+.etapas-controle {
+    list-style: none;
+    padding-left: 0;
 }
