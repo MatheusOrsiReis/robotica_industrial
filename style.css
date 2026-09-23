@@ -84,31 +84,66 @@ header h1 {
     margin: 0;
 }
 
-/* Navegação Fluida com Pílulas */
+/* Navegação responsiva */
+header > h1 + nav {
+    margin-top: 20px;
+}
+
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    min-width: 0;
 }
 
 nav ul li a {
-    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    height: 100%;
+    padding: 10px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    text-align: center;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
-    padding: 8px 18px;
-    border-radius: 99px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    transition: var(--transition);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-nav ul li a:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.22);
-    transform: translateY(-2px);
+nav ul li a[aria-current="page"] {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: var(--senai-blue);
+    font-weight: 700;
+}
+
+nav ul li a:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    nav ul li a:hover {
+        background: rgba(255, 255, 255, 0.22);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    nav ul li a[aria-current="page"]:hover {
+        background: #e2e8f0;
+    }
 }
 
 /* Conteúdo Principal */
@@ -334,8 +369,18 @@ footer {
     }
 
     nav ul {
-        flex-direction: column;
-        gap: 8px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    nav li:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+    }
+
+    nav ul li a {
+        padding: 12px 10px;
+        font-size: 0.85rem;
     }
 
     header h1 {
