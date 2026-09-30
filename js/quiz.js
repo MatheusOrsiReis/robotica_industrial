@@ -81,7 +81,7 @@ confirmar.addEventListener('click', function () {
         botao.disabled = true;
         if (botao.dataset.choice === pergunta.dataset.answer) botao.classList.add('correct');
     });
-    retorno.textContent = (acertou ? 'Você acertou! ' : 'Você errou. ') + 'Resposta ' + pergunta.dataset.answer + '. ' + pergunta.querySelector('.explanation').textContent;
+    retorno.textContent = (acertou ? 'Certa resposta! ' : 'Que pena, você errou! ') + 'Resposta ' + pergunta.dataset.answer + '. ' + pergunta.querySelector('.explanation').textContent;
     confirmar.hidden = true;
     proxima.hidden = false;
     proxima.textContent = acertou && rodada < 10 ? 'Próxima pergunta' : 'Ver resultado';
@@ -98,7 +98,8 @@ proxima.addEventListener('click', function () {
         partida.hidden = true;
         resultado.hidden = false;
         document.getElementById('titulo-resultado').textContent = acertos === 11 ? 'Você chegou ao milhão!' : 'Fim da partida';
-        document.getElementById('resumo').textContent = 'Você acertou ' + acertos + ' de 11 perguntas. Prêmio fictício: R$ ' + (acertos ? premios[acertos - 1] : '0') + '.';
+        document.getElementById('resumo').textContent = 'Você acertou ' + acertos + ' de 11 perguntas.';
+        document.getElementById('premio-final').textContent = 'R$ ' + (acertos ? premios[acertos - 1] : '0');
         document.getElementById('titulo-resultado').focus();
     }
 });

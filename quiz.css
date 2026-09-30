@@ -39,9 +39,20 @@
 }
 
 .helps { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 22px; color: #526071; font-size: .9rem; }
-.secondary { border: 1px solid #b9c4d1; border-radius: 5px; padding: 8px 16px; background: #fff; color: var(--senai-blue); }
-.secondary:hover:not(:disabled) { background: #edf3fb; }
-.secondary:disabled { color: #68788e; background: #f4f6f8; }
+.secondary {
+    min-width: 110px;
+    padding: 8px 18px;
+    color: #594410;
+    font-weight: 700 !important;
+    background: linear-gradient(165deg, #fff4c8 0%, #efcf7d 48%, #e3ba5b 49%, #f2d58b 100%);
+    border: 1px solid #b58b30;
+    border-top: 4px solid #ffedb0;
+    border-bottom: 5px solid #ae8127;
+    border-radius: 5px 5px 9px 9px;
+    box-shadow: 0 2px 2px #68501916;
+}
+.secondary:hover:not(:disabled) { background: linear-gradient(165deg, #fff7d9, #f5da8b 48%, #ebc467 49%, #ffe4a0); color: #3b2a06; }
+.secondary:disabled { color: #64583a; background: linear-gradient(165deg, #ede5d1, #d9cba9); border-color: #b7a883; box-shadow: none; }
 .answer.eliminated { color: #68788e; background: #f4f6f8; text-decoration: line-through; }
 .help-text { margin-top: 12px; color: #334155; padding: 12px; background: #edf3fb; border-radius: 5px; }
 .help-text:empty { display: none; }
@@ -74,3 +85,23 @@
     .gold-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gold-step { padding-left: 8px; padding-right: 8px; }
 }
+
+/* Prêmio conquistado no resultado, com o mesmo acabamento da trilha. */
+.final-gold {
+    display: grid;
+    gap: 6px;
+    width: 100%;
+    max-width: 380px;
+    margin: 24px 0 0;
+    padding: 20px 16px;
+    text-align: center;
+    color: #3b2a06;
+    background: linear-gradient(165deg, #fff4c8 0%, #efcf7d 48%, #e3ba5b 49%, #f2d58b 100%);
+    border: 1px solid #b58b30;
+    border-top: 6px solid #ffedb0;
+    border-bottom: 8px solid #ae8127;
+    border-radius: 6px 6px 12px 12px;
+    box-shadow: 0 3px 3px #68501920;
+}
+.final-gold strong { font-size: clamp(1.5rem, 5vw, 2.3rem); }
+.final-gold span { font-size: .85rem; }
