@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Robótica e Desenvolvimento de Sistemas</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../quiz.css">
+    <script src="../js/quiz.js" defer></script>
+</head>
+<body class="quiz-page">
+    <header>
+        <h1>Portal de Robótica e Automação Industrial</h1>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.html#sensoriamento">Sensoriamento</a></li>
+                <li><a href="arduino.html">Arduíno</a></li>
+                <li><a href="sensores.html">Catálogo de Sensores</a></li>
+                <li><a href="../index.html#robos">Robôs Industriais</a></li>
+                <li><a href="tinkercad.html">Práticas Tinkercad</a></li>
+                <li><a href="quiz.html" aria-current="page">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="quiz-main">
+        <section id="inicio" class="quiz-intro">
+            <p class="category">Robótica e desenvolvimento de sistemas</p>
+            <h2 class="quiz-brand"><img class="quiz-logo" src="../imagens/logo_quiz.png" alt="Programação do Milhão — Quiz" width="1774" height="887"></h2>
+            <p>11 perguntas sobre o que você estudou no site.</p>
+            <p>Escolha uma alternativa por rodada e confirme sua resposta. Acerte as 11 para chegar ao milhão fictício. Se errar, veja a explicação e tente novamente.</p>
+            <button id="jogar" class="primary" type="button" disabled>Jogar</button>
+            <p class="note">Ajudas: 50/50 e Dica, uma vez cada por partida. Sem tempo limite. Os valores são apenas parte do jogo.</p>
+            <noscript>Ative o JavaScript do navegador para jogar.</noscript>
+        </section>
+        <section id="partida" hidden aria-label="Rodada do quiz">
+            <div class="round-info"><span id="contador"></span><span id="premio"></span></div>
+<article class="question" data-answer="C" hidden aria-labelledby="titulo-1" data-dica="Pense na sequência: entender o negócio, organizar os dados e implementar no banco escolhido.">
+    <p class="category">Banco de dados</p>
+    <h2 id="titulo-1" tabindex="-1">Modelos de banco de dados</h2>
+    <p class="question-text">Uma equipe vai representar as entidades do sistema, organizar tabelas e relacionamentos e, por fim, definir a implementação no SGBD. Quais modelos correspondem, nessa ordem, a essas etapas?</p>
+    <figure class="quiz-visual"><img src="../imagens/quiz/banco.svg" alt="Tabela com exemplos de registros de sensores." loading="lazy"><figcaption>Ilustração didática.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-1">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Conceitual, físico e lógico.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Lógico, conceitual e físico.</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Conceitual, lógico e físico.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Físico, lógico e conceitual.</span></button>
+    </div>
+    <p class="explanation" hidden>O conceitual representa as entidades e relações do negócio. O lógico organiza tabelas e chaves. O físico define a implementação no SGBD, incluindo tipos de dados específicos e índices.</p>
+</article>
+<article class="question" data-answer="A" hidden aria-labelledby="titulo-2" data-dica="Procure o modelo que utiliza guias lineares, em vez de juntas que giram.">
+    <p class="category">Robôs industriais</p>
+    <h2 id="titulo-2" tabindex="-1">Movimento em três direções</h2>
+    <p class="question-text">Uma máquina movimenta sua ferramenta em linhas retas nos eixos X, Y e Z. Qual robô do site usa essa estrutura?</p>
+    <figure class="quiz-visual"><img src="../imagens/robo_cartesiano.png" alt="Robô cartesiano com guias de movimentação linear." loading="lazy"><figcaption>Observe o componente usado nesta questão.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-2"><button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Cartesiano.</span></button>
+<button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>SCARA.</span></button>
+<button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Articulado.</span></button>
+<button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Cilíndrico.</span></button></div>
+    <p class="explanation" hidden>O cartesiano se movimenta por eixos lineares X, Y e Z. Os outros modelos citados também utilizam movimentos de rotação.</p>
+</article>
+<article class="question" data-answer="D" hidden aria-labelledby="titulo-3" data-dica="Esse componente muda sua resistência conforme a quantidade de luz.">
+    <p class="category">Sensores</p>
+    <h2 id="titulo-3" tabindex="-1">Sensor de luminosidade</h2>
+    <p class="question-text">Uma escola quer acender a iluminação quando o ambiente escurece. Qual sensor do site permite identificar essa mudança?</p>
+    <figure class="quiz-visual"><img src="../imagens/LDR.webp" alt="Foto de um sensor LDR." loading="lazy"><figcaption>Observe o componente usado nesta questão.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-3">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>PIR.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>DHT11.</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>HC-SR04.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>LDR.</span></button>
+    </div>
+    <p class="explanation" hidden>O LDR responde à luminosidade. O PIR detecta movimento; o DHT11 mede temperatura e umidade; o HC-SR04 mede distância.</p>
+</article>
+<article class="question" data-answer="B" hidden aria-labelledby="titulo-4" data-dica="O sensor envia um som e detecta seu retorno após atingir um objeto.">
+    <p class="category">Sensores</p>
+    <h2 id="titulo-4" tabindex="-1">Ajuda para estacionar</h2>
+    <p class="question-text">No estacionamento inteligente do site, um sensor identifica se o carro está perto de um obstáculo. O que o HC-SR04 mede nessa aplicação?</p>
+    <figure class="quiz-visual"><img src="../imagens/HC-SR04.webp" alt="Foto do módulo ultrassônico HC-SR04." loading="lazy"><figcaption>Observe o componente usado nesta questão.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-4"><button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>A temperatura do motor.</span></button>
+<button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>A distância até o obstáculo.</span></button>
+<button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>A quantidade de luz do ambiente.</span></button>
+<button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>A presença de gás no local.</span></button></div>
+    <p class="explanation" hidden>O HC-SR04 usa ultrassom para medir distância. Assim, o sistema pode avisar quando um objeto está próximo.</p>
+</article>
+<article class="question" data-answer="C" hidden aria-labelledby="titulo-5" data-dica="Uma pilha tem polos positivo e negativo e fornece tensão com polaridade definida.">
+    <p class="category">Multímetro</p>
+    <h2 id="titulo-5" tabindex="-1">Conferindo a alimentação</h2>
+    <p class="question-text">Um aluno quer verificar a tensão de uma pilha com um multímetro. Qual função ele deve selecionar?</p>
+    <figure class="quiz-visual"><img src="../imagens/quiz/multimetro.svg" alt="Multímetro digital com visor e seletor." loading="lazy"><figcaption>Ilustração didática.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-5"><button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Corrente elétrica (A).</span></button>
+<button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Resistência elétrica (Ω).</span></button>
+<button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Tensão contínua (V DC).</span></button>
+<button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Tensão alternada (V AC).</span></button></div>
+    <p class="explanation" hidden>Pilhas fornecem tensão contínua. A função V DC mede essa tensão; A mede corrente e Ω mede resistência. V AC é para tensão alternada.</p>
+</article>
+<article class="question" data-answer="A" hidden aria-labelledby="titulo-6" data-dica="Nos pinos analógicos do Uno, a identificação começa com uma letra.">
+    <p class="category">Arduino</p>
+    <h2 id="titulo-6" tabindex="-1">Lendo um sensor</h2>
+    <p class="question-text">Um sensor fornece um sinal analógico que varia conforme a luz. No Arduino Uno, qual destes pinos pode ser usado para ler esse sinal?</p>
+    <figure class="quiz-visual"><img src="../imagens/quiz/arduino.svg" alt="Esquema de placa Arduino Uno com pinos identificados." loading="lazy"><figcaption>Ilustração didática.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-6"><button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>A0.</span></button>
+<button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>GND.</span></button>
+<button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>5V.</span></button>
+<button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>RESET.</span></button></div>
+    <p class="explanation" hidden>A0 é uma entrada analógica. GND é a referência do circuito, 5V fornece alimentação e RESET reinicia a placa.</p>
+</article>
+<article class="question" data-answer="D" hidden aria-labelledby="titulo-7" data-dica="O Arduino precisa enviar um sinal ao LED, e não receber um sinal dele.">
+    <p class="category">Arduino</p>
+    <h2 id="titulo-7" tabindex="-1">Entrada ou saída?</h2>
+    <p class="question-text">Um LED está ligado corretamente ao pino 9 do Arduino, com resistor. Qual comando configura esse pino para enviar o sinal que controla o LED?</p>
+    <figure class="quiz-visual"><img src="../imagens/quiz/arduino.svg" alt="Esquema de placa Arduino Uno com pinos identificados." loading="lazy"><figcaption>Ilustração didática.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-7">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>pinMode(9, INPUT);</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>pinMode(9, INPUT_PULLUP);</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>digitalRead(9);</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>pinMode(9, OUTPUT);</span></button>
+    </div>
+    <p class="explanation" hidden>OUTPUT configura o pino como saída. INPUT e INPUT_PULLUP configuram entradas; digitalRead lê o estado de um pino.</p>
+</article>
+<article class="question" data-answer="B" hidden aria-labelledby="titulo-8" data-dica="É o mesmo tipo de conexão usado para conectar um notebook ao roteador sem cabo.">
+    <p class="category">ESP32</p>
+    <h2 id="titulo-8" tabindex="-1">Conexão com a rede</h2>
+    <p class="question-text">Um ESP32 precisa enviar leituras de temperatura pela rede sem fio da escola. Qual recurso da placa permite essa conexão?</p>
+    <figure class="quiz-visual"><img src="../imagens/quiz/esp.svg" alt="ESP32 conectado a um painel por uma rede sem fio." loading="lazy"><figcaption>Ilustração didática.</figcaption></figure>
+    <div class="answers" role="group" aria-labelledby="titulo-8">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Bluetooth.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Wi-Fi.</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Comunicação serial USB.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Entrada analógica.</span></button>
+    </div>
+    <p class="explanation" hidden>O Wi-Fi conecta o ESP32 à rede sem fio da escola. Bluetooth usa outra forma de comunicação, USB exige cabo e a entrada analógica serve para ler sinais.</p>
+</article>
+<article class="question" data-answer="A" hidden aria-labelledby="titulo-9" data-dica="true significa verdadeiro. Observe qual bloco é executado quando a condição é verdadeira.">
+    <p class="category">Programação / Código</p>
+    <h2 id="titulo-9" tabindex="-1">Interpretando o if</h2>
+    <p class="question-text">O que será exibido ao executar este trecho?</p>
+    <pre><code>bool portaAberta = true;
+
+if (portaAberta) {
+  Serial.println(&quot;Aberta&quot;);
+} else {
+  Serial.println(&quot;Fechada&quot;);
+}</code></pre>
+    <div class="answers" role="group" aria-labelledby="titulo-9">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Aberta.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Fechada.</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Aberta e Fechada.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Nenhuma mensagem.</span></button>
+    </div>
+    <p class="explanation" hidden>A condição é verdadeira, então o bloco do if exibe &quot;Aberta&quot;. O else não é executado.</p>
+</article>
+<article class="question" data-answer="C" hidden aria-labelledby="titulo-10" data-dica="Quando a condição é falsa, o programa passa para o bloco alternativo.">
+    <p class="category">Programação / Código</p>
+    <h2 id="titulo-10" tabindex="-1">Quando o else é executado?</h2>
+    <p class="question-text">O sensor não detectou movimento. Qual mensagem este código exibe?</p>
+    <pre><code>bool movimento = false;
+
+if (movimento) {
+  Serial.println(&quot;Ligar luz&quot;);
+} else {
+  Serial.println(&quot;Desligar luz&quot;);
+}</code></pre>
+    <div class="answers" role="group" aria-labelledby="titulo-10">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Ligar luz.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Ligar luz e Desligar luz.</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Desligar luz.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Nenhuma mensagem.</span></button>
+    </div>
+    <p class="explanation" hidden>Como movimento é false, a condição do if é falsa. O programa executa o else e exibe &quot;Desligar luz&quot;.</p>
+</article>
+<article class="question" data-answer="B" hidden aria-labelledby="titulo-11" data-dica="Confira o símbolo que deve encerrar uma instrução em C/C++.">
+    <p class="category">Programação / Código</p>
+    <h2 id="titulo-11" tabindex="-1">Encontrando um erro</h2>
+    <p class="question-text">Este trecho apresenta um erro de sintaxe. Qual alteração permite compilá-lo?</p>
+    <pre><code>if (true) {
+  Serial.println(&quot;LED ligado&quot;)
+}</code></pre>
+    <div class="answers" role="group" aria-labelledby="titulo-11">
+        <button class="answer" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><span>Trocar true por false.</span></button>
+        <button class="answer" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><span>Adicionar ; após Serial.println(&quot;LED ligado&quot;).</span></button>
+        <button class="answer" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><span>Trocar if por else.</span></button>
+        <button class="answer" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><span>Remover as aspas de &quot;LED ligado&quot;.</span></button>
+    </div>
+    <p class="explanation" hidden>Falta o ponto e vírgula no final da instrução: Serial.println(&quot;LED ligado&quot;);. As outras alterações não corrigem esse erro.</p>
+</article>
+            <div class="helps" role="group" aria-label="Ajudas, uma vez cada por partida">
+                <span>Ajudas:</span>
+                <button id="meio-a-meio" class="secondary" type="button">50/50</button>
+                <button id="pedir-dica" class="secondary" type="button">Dica</button>
+            </div>
+            <p id="ajuda-texto" class="help-text" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p id="retorno" class="feedback" role="status" aria-live="polite" aria-atomic="true"></p>
+            <div class="actions">
+                <button id="confirmar" class="primary" type="button" disabled>Confirmar resposta</button>
+                <button id="proxima" class="primary" type="button" hidden>Próxima pergunta</button>
+            </div>
+        </section>
+        <section id="resultado" hidden>
+            <div class="quiz-brand"><img class="quiz-logo" src="../imagens/logo_quiz.png" alt="Programação do Milhão — Quiz" width="1774" height="887"></div>
+            <h2 id="titulo-resultado" tabindex="-1">Resultado</h2>
+            <p id="resumo"></p>
+            <button id="recomecar" class="primary" type="button">Jogar novamente</button>
+        </section>
+        <aside id="trilha" class="prize-trail" aria-labelledby="titulo-trilha" hidden>
+            <h2 id="titulo-trilha">Trilha do milhão</h2>
+            <p id="valor-conquistado" class="trail-bank" role="status">Conquistado: R$ 0</p>
+            <ol class="gold-list" aria-label="Prêmios por rodada">
+                    <li class="gold-step"><span class="gold-number">01</span><strong>R$ 1.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">02</span><strong>R$ 2.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">03</span><strong>R$ 5.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">04</span><strong>R$ 10.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">05</span><strong>R$ 20.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">06</span><strong>R$ 50.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">07</span><strong>R$ 100.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">08</span><strong>R$ 200.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">09</span><strong>R$ 300.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">10</span><strong>R$ 500.000</strong><span class="gold-status">A alcançar</span></li>
+                    <li class="gold-step"><span class="gold-number">11</span><strong>R$ 1.000.000</strong><span class="gold-status">A alcançar</span></li>
+            </ol>
+            <p class="note">Valores fictícios.</p>
+        </aside>
+    </main>
+    <footer>
+        <p>Trabalho de Robótica e Automação Industrial - Indústria 4.0</p>
+        <p>Desenvolvido por Matheus Orsi Reis</p>
+        <p>Orientador: José Ricardo Maçaneiro</p>
+    </footer>
+</body>
+</html>

@@ -27,6 +27,10 @@
 }
 
 body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
     font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     background-color: var(--bg-main);
     color: var(--text-primary);
@@ -334,16 +338,19 @@ section[aria-labelledby="aulas-arduino"] > p {
     text-align: center;
 }
 
-/* Rodapé */
+/* O rodapé fica no fim da tela em páginas curtas, sem cobrir o conteúdo. */
 footer {
-    background: linear-gradient(180deg, #0a2540 0%, #061729 100%);
-    color: #94a3b8;
+    background: #0a2540;
+    color: #c0cbd8;
     text-align: center;
-    padding: 35px 20px;
-    margin-top: 60px;
-    font-size: 0.9rem;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    padding: 24px 20px;
+    margin-top: auto;
+    font-size: 0.85rem;
+    border-top: 1px solid #24405c;
+}
+
+body > header, body > main, body > footer {
+    flex-shrink: 0;
 }
 
 /* Responsividade para Dispositivos Móveis */
